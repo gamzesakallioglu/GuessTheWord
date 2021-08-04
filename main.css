@@ -1,0 +1,52 @@
+body{
+    position:relative;
+    background: linear-gradient(#FFC0CB, 	#ADD8E6);
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.container{
+    position:relative;
+    display: flex;
+    justify-content: center;
+    margin-top: 60px;
+    text-align: center;
+}
+
+.card{
+    width: 70%;
+    padding: 20px;
+    margin: 20px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.8);
+    border-radius: 8px;
+}
+
+.card-header{
+    margin: 10px;
+    padding: 10px;
+    background: palevioletred;
+}
+
+#pheader{
+    font-size: x-large;
+}
+
+.card-body{
+    padding: 10px;
+    height: 300px;
+}
+
+.guess-area{
+    margin: 20px;
+}
+
+.guess-man{
+    margin: 20px;
+    border:seashell;
+}
+
+.guess-footer{
+    margin: 20px;
+}
+
