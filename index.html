@@ -3,34 +3,43 @@
         <meta charset="utf-8">
         <title>Kelime Tahmin Etme Oyunu</title>
         <link rel="stylesheet" type="text/css" href="main.css" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
         
     </head>
     <body>
-        <div class=container>
-            <div class="card">
-                <div class="card-header">
-                    <p id="pheader">KELİME TAHMİN ETMECE</p>
+        <div class="container">
+            <div class="card bg-dark">
+                <div class="card-header" style="background-color: cadetblue;">
+                    <p id="pheader" style="font-weight: 600;">KELİME TAHMİN ETMECE</p>
                 </div>
                 <div class="card-body">
-                     
-                     <p id="guess-area">
+                    <br/>
+                    <div class="row">
+                        <div class="col">
+                            <p id="guess-type" >
+                            
+                            </p>
+                     <p id="guess-area" style="font-size: 40px;">
                        
-                     </p>
-            
+                     </p> 
+                    </div>
+
+                <div class="col">
                     <p id="guess-man">
                         
                     </p>
-                
                 </div>
-                <div class="card-footer">
+                </div>
+                </div>
+                <div class="card-footer"  style="outline: 0">
                     <p>Bu harfleri daha önce tahmin ettin:</p>
                     <p id="guess-footer">
-                        
+                    
                     </p>
-
-                    <span id="guess-char">
-                        <input type="text" id="guessInput" placeholder="Tahmin et" maxlength=1 size=10>
-                        <button id="guessBtn">+</button>
+                    <span id="guess-char" style="display: flex; justify-content: center;">
+                        <input type="text" id="guessInput" placeholder="Tahmin et" maxlength=1 size=9 style="background-color: rgba(255, 255, 255, .1); border: 0">
+                        <button id="guessBtn" class="btn btn-success btn-sm">+</button>
                     </span>
                 </div>
             </div>

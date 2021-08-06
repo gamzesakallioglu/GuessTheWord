@@ -16,7 +16,6 @@ body{
     width: 70%;
     padding: 20px;
     margin: 20px;
-    background: rgba(0, 0, 0, 0.8);
     color: #fff;
     box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.8);
     border-radius: 8px;
@@ -25,7 +24,6 @@ body{
 .card-header{
     margin: 10px;
     padding: 10px;
-    background: palevioletred;
 }
 
 #pheader{
@@ -34,19 +32,18 @@ body{
 
 .card-body{
     padding: 10px;
-    height: 300px;
-}
-
-.guess-area{
-    margin: 20px;
-}
-
-.guess-man{
-    margin: 20px;
-    border:seashell;
+    height: 210px;
 }
 
 .guess-footer{
     margin: 20px;
+}
+
+.card-footer{
+    padding: 10px 0px;
+}
+
+.card-footer input:focus, .card-footer button:focus{
+    outline: 0;
 }
 

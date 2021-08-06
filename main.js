@@ -1,30 +1,45 @@
-var words = ["CARS", "HARRY POTTER", "RUN LOLA RUN", "HABABAM SINIFI", "TRANSFORMERS", "ALACAKARANLIK", "TWO WORLDS"];
-var wordsLength = words.length;
-var gameContinues = true;
+let movies = {0: ["CARS", "YABANCI-ANİMASYON-FİLM"],
+1: ["HARRY POTTER", "YABANCI-FANSTASTİ-FİLM"],
+2: ["HABABAM SINIFI", "YERLİ-KOMEDİ-FİLM"],
+3: ["TRANSFORMERS", "YABANCI-FANTASTİK-FİLM"],
+4: ["ALACAKARANLIK", "YABANCI-FANTASTİK-FİLM"],
+5: ["TWO WORLDS", "YABANCI-FANTASTİK-DİZİ"],
+6: ["AVRUPA YAKASI", "YERLİ-KOMEDİ-DİZİ"],
+7: ["SOUL", "YABANCI-ANİMASYON-FİLM"]};
 
-var wordToGuessInd = Math.floor(Math.random() * wordsLength); // 0 ve 100 arasında sayı üretir.
-var wordToGuess = words[wordToGuessInd];
+//var words = ["CARS", "HARRY POTTER", "RUN LOLA RUN", "HABABAM SINIFI", "TRANSFORMERS", "ALACAKARANLIK", "TWO WORLDS"];
+var wordsLength = Object.keys(movies).length;
+
+var wordToGuessInd = Math.floor(Math.random() * wordsLength);
+var wordToGuess = movies[wordToGuessInd][0];
+var wordToGuessType = movies[wordToGuessInd][1];
 
 // wordToGuessWo = wordToGuess.replace(/ /g,'');
-wordToGuessSpace = []
+wordToGuessSpace = [];
 var i = 0 ;
 while(i<wordToGuess.length){
     if(wordToGuess[i]!=' '){
         wordToGuessSpace.push("_");}
     else{
-        wordToGuessSpace.push(" ");
+        wordToGuessSpace.push("/");
     }
     i+=1;
 }
 
 function startTheGame(){
-    setArea(guessArea, wordToGuessSpace, '');
+    setArea(guessArea, wordToGuessSpace, ' ');
+    setAreaWo(guessType, "TÜR: "+wordToGuessType);
 }
 
+const guessType = document.getElementById("guess-type");
 const guessArea = document.getElementById("guess-area");
 
 function setArea(area, str, j){
     area.innerHTML = str.join(j);
+}
+
+function setAreaWo(area, str){
+    area.innerHTML = str;
 }
 
 // OYUNU BAŞLAT
@@ -36,7 +51,7 @@ function cleanTheGuess(){
     guessInput.value='';
 }
 
-
+console.log(wordToGuessType);
 console.log(wordToGuess);
 var adams = ["  /-  ", "  O  ",  "  /|\\  ", "  |  ", "  /\\  "];
 var lives = 5;
@@ -48,6 +63,10 @@ const guessBtn = document.getElementById('guessBtn');
 const guessInput = document.getElementById('guessInput');
 const guessMan = document.getElementById('guess-man');
 const guessedAlready = document.getElementById('guess-footer');
+
+guessInput.addEventListener('keyup', (event) => {
+    if(event.keyCode == 13) guessBtn.click();
+})
 
 guessBtn.addEventListener('click', ()=>{
     var guessedChar = guessInput.value;
@@ -68,13 +87,20 @@ guessBtn.addEventListener('click', ()=>{
                 i+=1;
             }
             
-            setArea(guessArea, wordToGuessSpace, '');
+            setArea(guessArea, wordToGuessSpace, ' ');
             cleanTheGuess();
 
             if(! wordToGuessSpace.includes("_")){
-                if(confirm("TEBRİKLER!! KAZANDIN\nTEKRAR OYNAMAK İÇİN LÜTFEN TAMAM'A BAS..")){
-                    location.reload();
-                }
+                swal({
+                    title: "TEBRİKLER KAZANDINIZ..",
+                    text: "Tekrar oynamak için lütfen TAMAM'a basın",
+                    icon: "success",
+                    confirmButtonClass: "btn-success",
+                    button: "TAMAM",
+                  }).then((value) => {
+                      location.reload();
+                  });
+                
             }
             
         }
@@ -90,8 +116,9 @@ guessBtn.addEventListener('click', ()=>{
             guessedArray.push(guessedChar);
             setArea(guessedAlready, guessedArray, "-");
             cleanTheGuess();
-            
+
             lives-=1;
+
             setArea(guessMan, adams.slice(0, 5-lives), "<br />");
             if(lives<=0){
                 swal({
@@ -102,7 +129,7 @@ guessBtn.addEventListener('click', ()=>{
                     button: "TAMAM",
                   }).then((value) => {
                       location.reload();
-                  })
+                  });
                 }
              
             else{
