@@ -32,6 +32,11 @@ window.addEventListener('load',()=> {
     startTheGame();
 })
 
+function cleanTheGuess(){
+    guessInput.value='';
+}
+
+
 console.log(wordToGuess);
 var adams = ["  /-  ", "  O  ",  "  /|\\  ", "  |  ", "  /\\  "];
 var lives = 5;
@@ -46,11 +51,13 @@ const guessedAlready = document.getElementById('guess-footer');
 
 guessBtn.addEventListener('click', ()=>{
     var guessedChar = guessInput.value;
-    if(guessedChar.length != 1){
+    var charCode = guessedChar.charCodeAt(0);
+    if(!((charCode>=65 && charCode<=90) || (charCode>=97 && charCode<=122))){
         alert("Lütfen bir harf giriniz..");
     }
-
+    
     else{
+        guessedChar = guessedChar.toUpperCase();
         if(wordToGuess.includes(guessedChar)){
             // DOĞRU TAHMİN, TAHMİN STRINGINI DEĞİŞTİR
             i=0;
@@ -62,24 +69,42 @@ guessBtn.addEventListener('click', ()=>{
             }
             
             setArea(guessArea, wordToGuessSpace, '');
+            cleanTheGuess();
+
+            if(! wordToGuessSpace.includes("_")){
+                if(confirm("TEBRİKLER!! KAZANDIN\nTEKRAR OYNAMAK İÇİN LÜTFEN TAMAM'A BAS..")){
+                    location.reload();
+                }
+            }
+            
         }
 
         // YANLIŞ TAHMİN, UYARI VER VE ADAM ASMACA EKLE
         // DAHA ÖNCEDEN YANLIŞ TAHMİN EDİLEN HARFLERİ BİR YERDE TOPLA
         else{
             if(guessedArray.includes(guessedChar)){
-                alert("Bu tahmini daha önce yaptınız. Lütfen başka bir harf giriniz..")
+                alert("Bu tahmini daha önce yaptınız. Lütfen başka bir harf giriniz..");
+                cleanTheGuess();
             }
             else{
             guessedArray.push(guessedChar);
             setArea(guessedAlready, guessedArray, "-");
+            cleanTheGuess();
             
             lives-=1;
             setArea(guessMan, adams.slice(0, 5-lives), "<br />");
             if(lives<=0){
-                alert("OYUN BİTTİ, MALESEF BİLEMEDİN..\nDOĞRU CEVAP:"+wordToGuess+"\nTEKRAR OYNAMAK İÇİN TAMAM'A BAS..");
-                location.reload();
-            }
+                swal({
+                    title: "MAALESEF KAZANAMADINIZ..",
+                    text: "Doğru Cevap: "+wordToGuess+"\nTekrar oynamak için lütfen TAMAM'a basın",
+                    icon: "sad.jpg",
+                    confirmButtonClass: "btn-success",
+                    button: "TAMAM",
+                  }).then((value) => {
+                      location.reload();
+                  })
+                }
+             
             else{
             alert("YANLIŞ TAHMİN:(\nLütfen tekrar dene..");}}
             
