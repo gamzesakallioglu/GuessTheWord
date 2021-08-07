@@ -1,5 +1,5 @@
 let movies = {0: ["CARS", "YABANCI-ANİMASYON-FİLM"],
-1: ["HARRY POTTER", "YABANCI-FANSTASTİ-FİLM"],
+1: ["HARRY POTTER", "YABANCI-FANSTASTİK-FİLM"],
 2: ["HABABAM SINIFI", "YERLİ-KOMEDİ-FİLM"],
 3: ["TRANSFORMERS", "YABANCI-FANTASTİK-FİLM"],
 4: ["ALACAKARANLIK", "YABANCI-FANTASTİK-FİLM"],
@@ -18,10 +18,13 @@ var wordToGuessType = movies[wordToGuessInd][1];
 wordToGuessSpace = [];
 var i = 0 ;
 while(i<wordToGuess.length){
-    if(wordToGuess[i]!=' '){
-        wordToGuessSpace.push("_");}
+    if(wordToGuess[i]==' '){
+        wordToGuessSpace.push("/");}
+    else if(wordToGuess[i]=="'" | wordToGuess[i]=="-"){
+        wordToGuessSpace.push(wordToGuess[i]);
+    }
     else{
-        wordToGuessSpace.push("/");
+        wordToGuessSpace.push('/');
     }
     i+=1;
 }
