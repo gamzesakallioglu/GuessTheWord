@@ -2,15 +2,15 @@
 Kelime tahmin etme oyunu. Javascript, Html, Css
 
        Oyun Başlangıç
-![1](https://user-images.githubusercontent.com/82520671/128597637-fd189227-68ac-4adf-a461-39ed06ef10ed.png)
+![1](https://user-images.githubusercontent.com/82520671/128597948-a29ce064-134b-40bf-9bbf-5478299ebccd.png)
 
 
        Doğru ve Yanlış Tahminler
-![image](https://user-images.githubusercontent.com/82520671/128597665-adc2dd71-a17b-49ab-9fdd-4b495fd198fc.png)
+![2](https://user-images.githubusercontent.com/82520671/128597921-c302623c-dbef-46ef-a74b-f56df98eaf9a.png)
 
 
        5 yanlış tahmin sonrası
-![3](https://user-images.githubusercontent.com/82520671/128597820-d7d070ac-36dc-4360-8a17-307104ca3df7.png)
+![3](https://user-images.githubusercontent.com/82520671/128598019-23054d07-7ab5-46d9-95e0-54664df0d6ab.png)
 
 
        Tüm harfler açıldıktan sonra
