@@ -24,7 +24,7 @@ while(i<wordToGuess.length){
         wordToGuessSpace.push(wordToGuess[i]);
     }
     else{
-        wordToGuessSpace.push('/');
+        wordToGuessSpace.push('_');
     }
     i+=1;
 }
