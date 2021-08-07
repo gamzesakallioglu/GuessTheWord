@@ -91,7 +91,6 @@ guessBtn.addEventListener('click', ()=>{
             }
             
             setArea(guessArea, wordToGuessSpace, ' ');
-            cleanTheGuess();
 
             if(! wordToGuessSpace.includes("_")){
                 swal({
@@ -105,6 +104,7 @@ guessBtn.addEventListener('click', ()=>{
                   });
                 
             }
+            cleanTheGuess();
             
         }
 
@@ -136,9 +136,9 @@ guessBtn.addEventListener('click', ()=>{
                 }
              
             else{
-            alert("YANLIŞ TAHMİN:(\nLütfen tekrar dene..");}}
-            
-            
+            alert("YANLIŞ TAHMİN:(\nLütfen tekrar dene..");
+                }
+            }
         }
     }
 })
