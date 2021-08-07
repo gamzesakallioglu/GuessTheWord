@@ -10,7 +10,7 @@ Kelime tahmin etme oyunu. Javascript, Html, Css
 
 
        5 yanlış tahmin sonrası
-![Uploading 3.png…]()
+![3](https://user-images.githubusercontent.com/82520671/128597820-d7d070ac-36dc-4360-8a17-307104ca3df7.png)
 
 
        Tüm harfler açıldıktan sonra
